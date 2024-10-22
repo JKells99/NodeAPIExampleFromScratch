@@ -1,3 +1,5 @@
+
+
 const db = require('../db'); // Import the db connection
 
 // Get all users
@@ -34,3 +36,13 @@ exports.getUserById = (req, res) => {
     });
 
 }
+
+
+exports.deleteUser = (req, res) => {
+    const { id } = req.params;
+    const sql = 'DELETE FROM users WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ message: 'User deleted' });
+    });
+};
