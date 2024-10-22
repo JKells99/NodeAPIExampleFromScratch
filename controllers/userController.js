@@ -50,3 +50,19 @@ exports.deleteUser = (req, res) => {
         res.json({ message: 'User deleted' });
     });
 };
+
+exports.login = (req, res) => {
+    const { email, password } = req.body;
+    const sql = 'SELECT * FROM users WHERE email = ?';
+    db.query(sql, [email], (err, results) => {
+        if (results.length === 0 || !results.length) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+        const user = results[0];
+        const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+        if (!isPasswordCorrect) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+        res.json({ message: 'Login successful' });
+    });
+}
