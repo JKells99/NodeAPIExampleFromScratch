@@ -12,6 +12,8 @@ This goes in the req body
 
 get all users http://localhost:3000/users
 
+Login http://localhost:3000/login
+
 
 
 
