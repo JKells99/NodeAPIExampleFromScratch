@@ -1,10 +1,8 @@
-
-
 const db = require('../db'); // Import the db connection
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// Get all users
+
 exports.getAllUsers = (req, res) => {
     const sql = 'SELECT * FROM users';
     db.query(sql, (err, results) => {
