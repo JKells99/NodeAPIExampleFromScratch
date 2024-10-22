@@ -1,0 +1,17 @@
+Get User By Id http://localhost:3000/users/1
+
+Delete User By Id http://localhost:3000/users/1
+
+Create a user http://localhost:3000/users
+This goes in the req body
+{
+    "name":"Jordan",
+    "email":"j_j@j.com"
+
+}
+
+get all users http://localhost:3000/users
+
+
+
+
